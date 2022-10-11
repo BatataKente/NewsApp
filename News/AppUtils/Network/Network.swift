@@ -7,14 +7,16 @@
 
 import Foundation
 
-struct Network {
+class Network {
+    
+    static let shared = Network()
     
     struct Constants {
         
         static let url = URL(string: "https://newsapi.org/v2/top-headlines?country=US&apiKey=eda6154a62744b7bbad849130a7f7b6f")
     }
     
-    static func callArticles(escape: @escaping(Result<Articles, Error>) -> Void) {
+    func callArticles(escape: @escaping(Result<Articles, Error>) -> Void) {
         
         guard let url = Constants.url else {print("URL nor found."); return}
                 

@@ -34,7 +34,7 @@ class NewsView: UIViewController {
         
         table.constraint(by: [.top,.leading,.trailing,.bottom])
         
-        Network.callArticles {[weak self] call in
+        Network.shared.callArticles {[weak self] call in
             
             switch call {
                 
