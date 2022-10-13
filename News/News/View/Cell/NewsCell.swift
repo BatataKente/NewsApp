@@ -76,7 +76,7 @@ class NewsCell: UITableViewCell {
         }
         else if let url = viewModel.imageURL {
             
-            Network.callData(url) {[weak self] data in
+            Network.call(url) {[weak self] data in
                 
                 self?.newsImageView.image = UIImage(data: data)
             }

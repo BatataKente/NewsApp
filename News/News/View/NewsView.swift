@@ -34,25 +34,18 @@ class NewsView: UIViewController {
         
         table.constraint(by: [.top,.leading,.trailing,.bottom])
         
-        Network.shared.callArticles {[weak self] call in
+        Network.call(Network.Constants.url, isRequiredKey: true) {[weak self] data in
             
-            switch call {
-                
-                case .success(let data):
-                
-                guard let articles = data.articles else {return}
-                
-                self?.articles = articles
-                self?.viewModels = articles.compactMap{
-                    
-                    NewsCellViewModel(title: $0.title ?? "No Title",
-                                      subTitle: $0.articleDescription ?? "No Description",
-                                      imageURL: URL(string: $0.urlToImage ?? ""))
-                }
-                self?.table.reloadData()
-                
-                case .failure(let error): print("ERROR: \(error)")
+            guard let articles = Network.decode(data, from: Articles.self)?.articles else {return}
+            
+            self?.articles = articles
+            self?.viewModels = articles.compactMap{
+
+                NewsCellViewModel(title: $0.title ?? "No Title",
+                                  subTitle: $0.articleDescription ?? "No Description",
+                                  imageURL: $0.urlToImage)
             }
+            self?.table.reloadData()
         }
     }
     
