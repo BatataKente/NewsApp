@@ -1,8 +1,8 @@
 //
-//  ViewController.swift
+//  View_3.swift
 //  News
 //
-//  Created by Josicleison on 10/10/22.
+//  Created by Josicleison on 21/10/22.
 //
 
 import UIKit
@@ -10,50 +10,39 @@ import SafariServices
 
 class NewsView: UIViewController {
     
-    private var viewModels:[NewsCellViewModel] = []
-    private var articles = [Article]()
-
-    private let table: UITableView = {
+    private var articles: [Article] = []
+    
+    private let tableView: UITableView = {
         
-        let table = UITableView()
-        table.register(NewsCell.self, forCellReuseIdentifier: NewsCell.identifier)
+        let tableView = UITableView()
+        tableView.register(NewsViewCell.self,
+                           forCellReuseIdentifier: NewsViewCell.identifier)
         
-        return table
+        return tableView
     }()
     
     override func viewDidLoad() {
         
         super.viewDidLoad()
         
-        view.backgroundColor = .systemBackground
         title = "News"
-        view.addSubview(table)
         
-        table.delegate = self
-        table.dataSource = self
+        tableView.delegate = self
+        tableView.dataSource = self
         
-        table.constraint(by: [.top,.leading,.trailing,.bottom])
+        view.addSubview(tableView)
+        view.backgroundColor = .systemRed
+        
+        tableView.constraint(to: view.safeAreaLayoutGuide,
+                             by: [.top,.leading,.trailing,.bottom])
         
         Network.call(Network.Constants.url, isRequiredKey: true) {[weak self] data in
-            
-            guard let articles = Network.decode(data, from: Articles.self)?.articles else {return}
-            
-            self?.articles = articles
-            self?.viewModels = articles.compactMap{
 
-                NewsCellViewModel(title: $0.title ?? "No Title",
-                                  subTitle: $0.articleDescription ?? "No Description",
-                                  imageURL: $0.urlToImage)
-            }
-            self?.table.reloadData()
+            guard let articles = Network.decode(data, from: Articles.self)?.articles else {return}
+
+            self?.articles = articles
+            self?.tableView.reloadData()
         }
-    }
-    
-    override func viewDidLayoutSubviews() {
-        
-        super.viewDidLayoutSubviews()
-        
-        table.frame = view.bounds
     }
 }
 
@@ -70,24 +59,16 @@ extension NewsView: UITableViewDelegate, UITableViewDataSource {
     
     func tableView(_ tableView: UITableView, numberOfRowsInSection section: Int) -> Int {
         
-        viewModels.count
+        articles.count
     }
     
     func tableView(_ tableView: UITableView, cellForRowAt indexPath: IndexPath) -> UITableViewCell {
         
-        guard let cell = tableView.dequeueReusableCell(withIdentifier: NewsCell.identifier,
-                                                       for: indexPath) as? NewsCell
-        else {
-            
-            fatalError()
-        }
-        cell.configure(with: viewModels[indexPath.row])
+        let cell = tableView.dequeueReusableCell(withIdentifier: NewsViewCell.identifier,
+                                                 for: indexPath) as? NewsViewCell
+        cell?.setup(articles[indexPath.row].title ?? "",
+                    imageLink: articles[indexPath.row].urlToImage ?? "")
         
-        return cell
-    }
-    
-    func tableView(_ tableView: UITableView, heightForRowAt indexPath: IndexPath) -> CGFloat {
-        
-        150
+        return cell ?? UITableViewCell()
     }
 }

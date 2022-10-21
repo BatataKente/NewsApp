@@ -21,7 +21,7 @@ struct Create {
     }
     
     static func label(_ text: String? = nil,
-                      font: UIFont? = nil,
+                      font: UIFont? = Assets.font(25),
                       background: UIColor? = nil) -> UILabel {
         
         let label = UILabel()

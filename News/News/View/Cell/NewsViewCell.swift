@@ -7,7 +7,7 @@
 
 import UIKit
 
-class View_3Cell: UITableViewCell {
+class NewsViewCell: UITableViewCell {
     
     static let identifier = "Cell"
     
