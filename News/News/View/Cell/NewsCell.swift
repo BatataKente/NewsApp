@@ -53,7 +53,7 @@ class NewsCell: UITableViewCell {
         newsSubTitleLabel.constraint(by: [.height], multiplier: 0.5)
         newsSubTitleLabel.constraint(by: [.width], multiplier: 0.6)
         
-        newsImageView.constraint([.top:5,.trailing:0,.bottom:0])
+        newsImageView.constraint(by: [.top,.trailing,.bottom])
         newsImageView.constraint(by: [.width], multiplier: 0.4)
     }
     
