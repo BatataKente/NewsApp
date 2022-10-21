@@ -9,12 +9,14 @@ import UIKit
 
 struct Create {
     
-    static func imageView() -> UIImageView {
+    static func imageView(_ image: UIImage? = nil,
+                          color: UIColor? = nil) -> UIImageView {
         
-        let imageView = UIImageView()
-        imageView.contentMode = .scaleAspectFill
+        let imageView = UIImageView(image: image)
+        imageView.contentMode = .scaleAspectFit
         imageView.clipsToBounds = true
         imageView.layer.cornerRadius = 5
+        imageView.tintColor = color
         imageView.layer.masksToBounds = true
         
         return imageView
@@ -22,12 +24,12 @@ struct Create {
     
     static func label(_ text: String? = nil,
                       font: UIFont? = Assets.font(25),
-                      background: UIColor? = nil) -> UILabel {
+                      alignment: NSTextAlignment = .left) -> UILabel {
         
         let label = UILabel()
         label.text = text
         label.font = font
-        label.backgroundColor = background
+        label.textAlignment = alignment
         label.numberOfLines = 0
         
         return label

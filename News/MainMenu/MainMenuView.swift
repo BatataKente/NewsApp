@@ -26,7 +26,7 @@ class MainMenuView: UIViewController {
         }
         
         let stack = UIStackView(arrangedSubviews: [menuButton(NewsView()),
-                                                   menuButton(WeaterView())])
+                                                   menuButton(WheaterView())])
         stack.axis = .vertical
         stack.alignment = .trailing
         stack.spacing = 5

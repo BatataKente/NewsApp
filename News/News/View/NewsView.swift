@@ -17,6 +17,7 @@ class NewsView: UIViewController {
         let tableView = UITableView()
         tableView.register(NewsViewCell.self,
                            forCellReuseIdentifier: NewsViewCell.identifier)
+        tableView.backgroundColor = .systemRed
         
         return tableView
     }()
