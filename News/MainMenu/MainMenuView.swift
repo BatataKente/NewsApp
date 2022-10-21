@@ -26,7 +26,8 @@ class MainMenuView: UIViewController {
         }
         
         let stack = UIStackView(arrangedSubviews: [menuButton(NewsView()),
-                                                   menuButton(WeaterView())])
+                                                   menuButton(WeaterView()),
+                                                   menuButton(View_3())])
         stack.axis = .vertical
         stack.alignment = .trailing
         stack.spacing = 5
@@ -41,8 +42,6 @@ class MainMenuView: UIViewController {
         title = "MainMenu"
         view.backgroundColor = .systemRed
         view.addSubview(stack)
-        
-        let gradient = CAGradientLayer()
         
         stack.constraint(to: view.safeAreaLayoutGuide, [.trailing: -20,.bottom: -20])
     }

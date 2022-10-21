@@ -17,39 +17,17 @@ extension UIView {
         }
     }
     
-    func fill(_ what: Any? = nil) {
+    func shape(height: CGFloat? = nil, width: CGFloat? = nil, size: CGFloat? = nil) {
         
         translatesAutoresizingMaskIntoConstraints = false
         
-        superview?.addConstraints([NSLayoutConstraint(item: self,
-                                                      attribute: .top,
-                                                      relatedBy: .equal,
-                                                      toItem: what ?? superview,
-                                                      attribute: .top,
-                                                      multiplier: 1,
-                                                      constant: 0),
-                                   NSLayoutConstraint(item: self,
-                                                      attribute: .bottom,
-                                                      relatedBy: .equal,
-                                                      toItem: what ?? superview,
-                                                      attribute: .bottom,
-                                                      multiplier: 1,
-                                                      constant: 0),
-                                   NSLayoutConstraint(item: self,
-                                                      attribute: .trailing,
-                                                      relatedBy: .equal,
-                                                      toItem: what ?? superview,
-                                                      attribute: .trailing,
-                                                      multiplier: 1,
-                                                      constant: 0),
-                                   NSLayoutConstraint(item: self,
-                                                      attribute: .leading,
-                                                      relatedBy: .equal,
-                                                      toItem: what ?? superview,
-                                                      attribute: .top,
-                                                      multiplier: 1,
-                                                      constant: 0)])
-        
+        if let height = height {heightAnchor.constraint(equalToConstant: height).isActive = true}
+        else if let width = width {widthAnchor.constraint(equalToConstant: width).isActive = true}
+        else if let size = size {
+            
+            heightAnchor.constraint(equalToConstant: size).isActive = true
+            widthAnchor.constraint(equalToConstant: size).isActive = true
+        }
     }
     
     func constraint(to item: Any? = nil,

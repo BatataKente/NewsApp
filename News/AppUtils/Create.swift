@@ -9,6 +9,17 @@ import UIKit
 
 struct Create {
     
+    static func imageView() -> UIImageView {
+        
+        let imageView = UIImageView()
+        imageView.contentMode = .scaleAspectFill
+        imageView.clipsToBounds = true
+        imageView.layer.cornerRadius = 5
+        imageView.layer.masksToBounds = true
+        
+        return imageView
+    }
+    
     static func label(_ text: String? = nil,
                       font: UIFont? = nil,
                       background: UIColor? = nil) -> UILabel {

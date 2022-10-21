@@ -22,6 +22,8 @@
 		143311812902BEF6009A708E /* MainMenuView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 143311802902BEF6009A708E /* MainMenuView.swift */; };
 		143311832902C345009A708E /* UIStackView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 143311822902C345009A708E /* UIStackView.swift */; };
 		143311862902DFA9009A708E /* WheaterView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 143311852902DFA9009A708E /* WheaterView.swift */; };
+		143311882902EA93009A708E /* View_3.swift in Sources */ = {isa = PBXBuildFile; fileRef = 143311872902EA93009A708E /* View_3.swift */; };
+		1433118A2902F56C009A708E /* View_3Cell.swift in Sources */ = {isa = PBXBuildFile; fileRef = 143311892902F56C009A708E /* View_3Cell.swift */; };
 /* End PBXBuildFile section */
 
 /* Begin PBXContainerItemProxy section */
@@ -61,6 +63,8 @@
 		143311802902BEF6009A708E /* MainMenuView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = MainMenuView.swift; sourceTree = "<group>"; };
 		143311822902C345009A708E /* UIStackView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = UIStackView.swift; sourceTree = "<group>"; };
 		143311852902DFA9009A708E /* WheaterView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = WheaterView.swift; sourceTree = "<group>"; };
+		143311872902EA93009A708E /* View_3.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = View_3.swift; sourceTree = "<group>"; };
+		143311892902F56C009A708E /* View_3Cell.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = View_3Cell.swift; sourceTree = "<group>"; };
 /* End PBXFileReference section */
 
 /* Begin PBXFrameworksBuildPhase section */
@@ -180,6 +184,7 @@
 			children = (
 				140B924D28F4862F00472D77 /* NewsCellViewModel.swift */,
 				140B924928F4854B00472D77 /* NewsCell.swift */,
+				143311892902F56C009A708E /* View_3Cell.swift */,
 			);
 			path = Cell;
 			sourceTree = "<group>";
@@ -189,6 +194,7 @@
 			children = (
 				140B924728F4853400472D77 /* Cell */,
 				140B920B28F460CB00472D77 /* NewsView.swift */,
+				143311872902EA93009A708E /* View_3.swift */,
 			);
 			path = View;
 			sourceTree = "<group>";
@@ -343,6 +349,7 @@
 				143311812902BEF6009A708E /* MainMenuView.swift in Sources */,
 				140B923B28F4617200472D77 /* UIView.swift in Sources */,
 				143311862902DFA9009A708E /* WheaterView.swift in Sources */,
+				143311882902EA93009A708E /* View_3.swift in Sources */,
 				140B920C28F460CB00472D77 /* NewsView.swift in Sources */,
 				140B924528F4817000472D77 /* Create.swift in Sources */,
 				140B924028F465EB00472D77 /* Network.swift in Sources */,
@@ -351,6 +358,7 @@
 				140B920828F460CB00472D77 /* AppDelegate.swift in Sources */,
 				140B920A28F460CB00472D77 /* SceneDelegate.swift in Sources */,
 				140B923D28F4636B00472D77 /* Assets.swift in Sources */,
+				1433118A2902F56C009A708E /* View_3Cell.swift in Sources */,
 				140B924E28F4862F00472D77 /* NewsCellViewModel.swift in Sources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
