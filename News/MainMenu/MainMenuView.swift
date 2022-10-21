@@ -25,7 +25,11 @@ class MainMenuView: UIViewController {
                                  image: Assets.Images.right, handler: handler)
         }
         
-        let stack = UIStackView(arrangedSubviews: [menuButton(NewsView())])
+        let stack = UIStackView(arrangedSubviews: [menuButton(NewsView()),
+                                                   menuButton(WheaterView())])
+        stack.axis = .vertical
+        stack.alignment = .trailing
+        stack.spacing = 5
         
         return stack
     }()
@@ -35,10 +39,9 @@ class MainMenuView: UIViewController {
         super.viewDidLoad()
         
         title = "MainMenu"
-        view.backgroundColor = .systemBlue
+        view.backgroundColor = .systemRed
         view.addSubview(stack)
         
-        stack.constraint(to: view.safeAreaLayoutGuide,
-                         [.trailing: -20,.bottom: -20])
+        stack.constraint(to: view.safeAreaLayoutGuide, [.trailing: -20,.bottom: -20])
     }
 }
