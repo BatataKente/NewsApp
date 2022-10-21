@@ -17,6 +17,41 @@ extension UIView {
         }
     }
     
+    func fill(_ what: Any? = nil) {
+        
+        translatesAutoresizingMaskIntoConstraints = false
+        
+        superview?.addConstraints([NSLayoutConstraint(item: self,
+                                                      attribute: .top,
+                                                      relatedBy: .equal,
+                                                      toItem: what ?? superview,
+                                                      attribute: .top,
+                                                      multiplier: 1,
+                                                      constant: 0),
+                                   NSLayoutConstraint(item: self,
+                                                      attribute: .bottom,
+                                                      relatedBy: .equal,
+                                                      toItem: what ?? superview,
+                                                      attribute: .bottom,
+                                                      multiplier: 1,
+                                                      constant: 0),
+                                   NSLayoutConstraint(item: self,
+                                                      attribute: .trailing,
+                                                      relatedBy: .equal,
+                                                      toItem: what ?? superview,
+                                                      attribute: .trailing,
+                                                      multiplier: 1,
+                                                      constant: 0),
+                                   NSLayoutConstraint(item: self,
+                                                      attribute: .leading,
+                                                      relatedBy: .equal,
+                                                      toItem: what ?? superview,
+                                                      attribute: .top,
+                                                      multiplier: 1,
+                                                      constant: 0)])
+        
+    }
+    
     func constraint(to item: Any? = nil,
                     relation: NSLayoutConstraint.Relation = .equal,
                     by attributes: [NSLayoutConstraint.Attribute]? = nil,
@@ -26,14 +61,14 @@ extension UIView {
                                              CGFloat]? = nil,
                     multiplier: CGFloat = 1,
                     constant: CGFloat? = nil) {
-        
+
         translatesAutoresizingMaskIntoConstraints = false
-        
+
         guard let superview = self.superview else {return}
         if let attributes = attributes {
-            
+
             for attribute in attributes {
-                
+
                 superview.addConstraint(NSLayoutConstraint(item: self,
                                                            attribute: attribute,
                                                            relatedBy: relation,
@@ -44,9 +79,9 @@ extension UIView {
             }
         }
         if let attributes = attributes_attributes {
-            
+
             for attribute in attributes {
-                
+
                 superview.addConstraint(NSLayoutConstraint(item: self,
                                                            attribute: attribute.key,
                                                            relatedBy: relation,
@@ -57,9 +92,9 @@ extension UIView {
             }
         }
         if let attributes = attributes_constants {
-            
+
             for attribute in attributes {
-                
+
                 superview.addConstraint(NSLayoutConstraint(item: self,
                                                            attribute: attribute.key,
                                                            relatedBy: relation,

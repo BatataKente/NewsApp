@@ -9,12 +9,40 @@ import UIKit
 
 struct Create {
     
-    static func label(font: UIFont?) -> UILabel {
+    static func label(_ text: String? = nil,
+                      font: UIFont? = nil,
+                      background: UIColor? = nil) -> UILabel {
         
         let label = UILabel()
+        label.text = text
         label.font = font
+        label.backgroundColor = background
         label.numberOfLines = 0
         
         return label
+    }
+    
+    static func button(_ title: String? = nil,
+                       font: UIFont? = Assets.font(25),
+                       image: UIImage? = nil,
+                       handler: @escaping UIActionHandler) -> UIButton {
+        
+        let button = UIButton()
+        button.setTitle(title, for: .normal)
+        button.setImage(image, for: .normal)
+        button.tintColor = .white
+        button.addAction(UIAction(handler: handler), for: .touchUpInside)
+        button.transform = CGAffineTransform(scaleX: -1.0, y: 1.0)
+        
+        button.titleLabel?.transform = CGAffineTransform(scaleX: -1.0, y: 1.0)
+        button.titleLabel?.font = font
+        
+        button.imageView?.transform = CGAffineTransform(scaleX: -1.0, y: 1.0)
+        button.imageView?.constraint(to: button.titleLabel, by: [.height],
+                                     multiplier: 0.9)
+        button.imageView?.constraint(to: button.imageView, with: [.width: .height],
+                                     multiplier: 0.7)
+        
+        return button
     }
 }

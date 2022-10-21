@@ -21,8 +21,9 @@ class SceneDelegate: UIResponder, UIWindowSceneDelegate {
         
         let navigationController: UINavigationController = {
             
-            let navigationController = UINavigationController(rootViewController: NewsView())
+            let navigationController = UINavigationController(rootViewController: MainMenuView())
             navigationController.navigationBar.prefersLargeTitles = true
+            navigationController.navigationBar.tintColor = .white
             
             return navigationController
         }()
