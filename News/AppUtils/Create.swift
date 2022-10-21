@@ -29,8 +29,9 @@ struct Create {
         
         let button = UIButton()
         button.setTitle(title, for: .normal)
+        button.setTitleColor(Assets.Colors.reverseDark, for: .normal)
         button.setImage(image, for: .normal)
-        button.tintColor = .white
+        button.tintColor = Assets.Colors.reverseDark
         button.addAction(UIAction(handler: handler), for: .touchUpInside)
         button.transform = CGAffineTransform(scaleX: -1.0, y: 1.0)
         

@@ -9,6 +9,12 @@ import UIKit
 
 struct Assets {
     
+    struct Colors {
+        
+        static let reverseDark = UIColor(named: "reverseDark")
+        static let lightBlue = UIColor(named: "lightBlue")
+    }
+    
     static let font = {(size: CGFloat) -> UIFont in
         
         UIFont.systemFont(ofSize: size, weight: .bold)

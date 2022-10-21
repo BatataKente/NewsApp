@@ -21,6 +21,7 @@
 		140B924E28F4862F00472D77 /* NewsCellViewModel.swift in Sources */ = {isa = PBXBuildFile; fileRef = 140B924D28F4862F00472D77 /* NewsCellViewModel.swift */; };
 		143311812902BEF6009A708E /* MainMenuView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 143311802902BEF6009A708E /* MainMenuView.swift */; };
 		143311832902C345009A708E /* UIStackView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 143311822902C345009A708E /* UIStackView.swift */; };
+		143311862902DFA9009A708E /* WheaterView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 143311852902DFA9009A708E /* WheaterView.swift */; };
 /* End PBXBuildFile section */
 
 /* Begin PBXContainerItemProxy section */
@@ -59,6 +60,7 @@
 		140B924D28F4862F00472D77 /* NewsCellViewModel.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = NewsCellViewModel.swift; sourceTree = "<group>"; };
 		143311802902BEF6009A708E /* MainMenuView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = MainMenuView.swift; sourceTree = "<group>"; };
 		143311822902C345009A708E /* UIStackView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = UIStackView.swift; sourceTree = "<group>"; };
+		143311852902DFA9009A708E /* WheaterView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = WheaterView.swift; sourceTree = "<group>"; };
 /* End PBXFileReference section */
 
 /* Begin PBXFrameworksBuildPhase section */
@@ -107,6 +109,7 @@
 		140B920628F460CB00472D77 /* News */ = {
 			isa = PBXGroup;
 			children = (
+				143311842902DF8D009A708E /* Wheater */,
 				140B924628F484CD00472D77 /* News */,
 				144E15182902BEA40071CE79 /* MainMenu */,
 				140B923828F4615800472D77 /* AppDelegate */,
@@ -188,6 +191,14 @@
 				140B920B28F460CB00472D77 /* NewsView.swift */,
 			);
 			path = View;
+			sourceTree = "<group>";
+		};
+		143311842902DF8D009A708E /* Wheater */ = {
+			isa = PBXGroup;
+			children = (
+				143311852902DFA9009A708E /* WheaterView.swift */,
+			);
+			path = Wheater;
 			sourceTree = "<group>";
 		};
 		144E15182902BEA40071CE79 /* MainMenu */ = {
@@ -331,6 +342,7 @@
 				140B924328F46A6F00472D77 /* Articles.swift in Sources */,
 				143311812902BEF6009A708E /* MainMenuView.swift in Sources */,
 				140B923B28F4617200472D77 /* UIView.swift in Sources */,
+				143311862902DFA9009A708E /* WheaterView.swift in Sources */,
 				140B920C28F460CB00472D77 /* NewsView.swift in Sources */,
 				140B924528F4817000472D77 /* Create.swift in Sources */,
 				140B924028F465EB00472D77 /* Network.swift in Sources */,
