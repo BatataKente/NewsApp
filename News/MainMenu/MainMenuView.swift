@@ -11,7 +11,7 @@ class MainMenuView: UIViewController {
     
     private lazy var stack: UIStackView = {
         
-        let menuButton = {(viewControllet: UIViewController) -> UIButton in
+        let button = {(viewControllet: UIViewController) -> UIButton in
             
             let handler = {(action: UIAction) in
                 
@@ -25,8 +25,9 @@ class MainMenuView: UIViewController {
                                  image: Assets.Images.right, handler: handler)
         }
         
-        let stack = UIStackView(arrangedSubviews: [menuButton(NewsView()),
-                                                   menuButton(WheaterView())])
+        let stack = UIStackView(arrangedSubviews: [button(NewsView()),
+                                                   button(WheaterView()),
+                                                   button(HelloView())])
         stack.axis = .vertical
         stack.alignment = .trailing
         stack.spacing = 5
