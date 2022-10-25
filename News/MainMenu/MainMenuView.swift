@@ -25,9 +25,7 @@ class MainMenuView: UIViewController {
                                  image: Assets.Images.right, handler: handler)
         }
         
-        let stack = UIStackView(arrangedSubviews: [button(NewsView()),
-                                                   button(WheaterView()),
-                                                   button(HelloView())])
+        let stack = UIStackView(arrangedSubviews: [button(NewsView()), button(WheaterView()), button(HelloView()), button(RingView())])
         stack.axis = .vertical
         stack.alignment = .trailing
         stack.spacing = 5
