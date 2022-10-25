@@ -9,6 +9,16 @@ import UIKit
 
 struct Create {
     
+    static func stack(_ spacing: CGFloat = 20) -> UIStackView {
+        
+        let stack = UIStackView()
+        stack.axis = .vertical
+        stack.spacing = spacing
+        stack.alignment = .center
+        
+        return stack
+    }
+    
     static func imageView(_ image: UIImage? = nil,
                           color: UIColor? = nil) -> UIImageView {
         

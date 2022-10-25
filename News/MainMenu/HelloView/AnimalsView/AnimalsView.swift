@@ -17,15 +17,7 @@ class AnimalsView: UIViewController {
     
     weak var delegate: AnimalsViewDelegate?
     
-    private let stack: UIStackView = {
-        
-        let stack = UIStackView()
-        stack.axis = .vertical
-        stack.spacing = 20
-        stack.alignment = .center
-        
-        return stack
-    }()
+    private let stack: UIStackView = Create.stack()
     
     override func viewDidLoad() {
         
@@ -50,6 +42,7 @@ class AnimalsView: UIViewController {
         return Create.button(title) {_ in
             
             self.delegate?.setupLabel("Hello \(title)")
+            self.navigationController?.popViewController(animated: true)
         }
     }
 }

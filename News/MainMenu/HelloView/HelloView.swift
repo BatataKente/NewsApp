@@ -12,14 +12,7 @@ class HelloView: UIViewController {
     
     private let label = Create.label("Hello Crazy World")
     
-    private let stack: UIStackView = {
-        
-        let stack = UIStackView()
-        stack.axis = .vertical
-        stack.spacing = 20
-        
-        return stack
-    }()
+    private let stack: UIStackView = Create.stack()
     
     override func viewDidLoad() {
         
