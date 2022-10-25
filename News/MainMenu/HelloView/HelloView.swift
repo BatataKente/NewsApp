@@ -14,6 +14,8 @@ class HelloView: UIViewController {
     
     private let stack: UIStackView = Create.stack()
     
+    let disposeBag = DisposeBag()
+    
     override func viewDidLoad() {
         
         super.viewDidLoad()
@@ -34,7 +36,11 @@ class HelloView: UIViewController {
         return Create.button("Toca aqui") {_ in
             
             let animalsView = AnimalsView()
-            animalsView.delegate = self
+//            animalsView.delegate = self
+            animalsView.animal.subscribe {[weak self] text in
+                
+                self?.label.text = text
+            }.disposed(by: self.disposeBag)
             
             self.navigationController?.pushViewController(animalsView,
                                                           animated: true)
@@ -42,10 +48,10 @@ class HelloView: UIViewController {
     }
 }
 
-extension HelloView: AnimalsViewDelegate {
-    
-    func setupLabel(_ text: String) {
-        
-        label.text = text
-    }
-}
+//extension HelloView: AnimalsViewDelegate {
+//
+//    func setupLabel(_ text: String) {
+//
+//        label.text = text
+//    }
+//}
