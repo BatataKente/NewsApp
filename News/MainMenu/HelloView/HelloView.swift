@@ -12,14 +12,9 @@ class HelloView: UIViewController {
     
     private let label = Create.label("Hello Crazy World")
     
-    private let stack: UIStackView = {
-        
-        let stack = UIStackView()
-        stack.axis = .vertical
-        stack.spacing = 20
-        
-        return stack
-    }()
+    private let stack: UIStackView = Create.stack()
+    
+    private let disposeBag = DisposeBag()
     
     override func viewDidLoad() {
         
@@ -41,18 +36,13 @@ class HelloView: UIViewController {
         return Create.button("Toca aqui") {_ in
             
             let animalsView = AnimalsView()
-            animalsView.delegate = self
+            animalsView.animal.subscribe {[weak self] text in
+                
+                self?.label.text = text
+            }.disposed(by: self.disposeBag)
             
             self.navigationController?.pushViewController(animalsView,
                                                           animated: true)
         }
-    }
-}
-
-extension HelloView: AnimalsViewDelegate {
-    
-    func setupLabel(_ text: String) {
-        
-        label.text = text
     }
 }

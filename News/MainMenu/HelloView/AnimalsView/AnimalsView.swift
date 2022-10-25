@@ -7,25 +7,18 @@
 
 import UIKit
 import RxSwift
-
-protocol AnimalsViewDelegate: AnyObject {
-    
-    func setupLabel(_ text: String)
-}
+import RxRelay
 
 class AnimalsView: UIViewController {
     
-    weak var delegate: AnimalsViewDelegate?
+    private let stack: UIStackView = Create.stack()
     
-    private let stack: UIStackView = {
+    private let selected = BehaviorRelay(value: "Crazy World")
+    
+    var animal: Observable<String> {
         
-        let stack = UIStackView()
-        stack.axis = .vertical
-        stack.spacing = 20
-        stack.alignment = .center
-        
-        return stack
-    }()
+        return selected.asObservable()
+    }
     
     override func viewDidLoad() {
         
@@ -49,7 +42,8 @@ class AnimalsView: UIViewController {
         
         return Create.button(title) {_ in
             
-            self.delegate?.setupLabel("Hello \(title)")
+            self.selected.accept("Hello \(title)")
+            self.navigationController?.popViewController(animated: true)
         }
     }
 }
