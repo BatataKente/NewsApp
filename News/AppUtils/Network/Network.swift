@@ -6,6 +6,7 @@
 //
 
 import Foundation
+import XMLCoder
 
 class Network {
     
@@ -48,6 +49,22 @@ class Network {
         catch {
             
             print("ERROR: \(error)"); return nil
+        }
+    }
+    
+    struct XML {
+        
+        static func decode<T: Codable>(_ data: Data, from type: T.Type) -> T? {
+            
+            do {
+                
+                let articles = try XMLDecoder().decode(T.self, from: data)
+                return articles
+            }
+            catch {
+                
+                print("ERROR: \(error)"); return nil
+            }
         }
     }
 }
