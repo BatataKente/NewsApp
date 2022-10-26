@@ -9,9 +9,9 @@ import UIKit
 
 struct Create {
     
-    static func stack(_ spacing: CGFloat = 20) -> UIStackView {
+    static func stack(_ spacing: CGFloat = 20, arrangedSubviews: [UIView] = []) -> UIStackView {
         
-        let stack = UIStackView()
+        let stack = UIStackView(arrangedSubviews: arrangedSubviews)
         stack.axis = .vertical
         stack.spacing = spacing
         stack.alignment = .center
