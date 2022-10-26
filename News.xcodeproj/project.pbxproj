@@ -29,6 +29,10 @@
 		147DA9012909623800F33A97 /* RxCocoa in Frameworks */ = {isa = PBXBuildFile; productRef = 147DA9002909623800F33A97 /* RxCocoa */; };
 		147DA9032909623800F33A97 /* RxRelay in Frameworks */ = {isa = PBXBuildFile; productRef = 147DA9022909623800F33A97 /* RxRelay */; };
 		147DA9052909623800F33A97 /* RxSwift in Frameworks */ = {isa = PBXBuildFile; productRef = 147DA9042909623800F33A97 /* RxSwift */; };
+		147DA909290970BA00F33A97 /* View_0.swift in Sources */ = {isa = PBXBuildFile; fileRef = 147DA908290970BA00F33A97 /* View_0.swift */; };
+		147DA90E2909991200F33A97 /* XMLCoder in Frameworks */ = {isa = PBXBuildFile; productRef = 147DA90D2909991200F33A97 /* XMLCoder */; };
+		147DA9122909ADEF00F33A97 /* OtherNewsView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 147DA9112909ADEF00F33A97 /* OtherNewsView.swift */; };
+		147DA9172909AEC700F33A97 /* Note.swift in Sources */ = {isa = PBXBuildFile; fileRef = 147DA9162909AEC700F33A97 /* Note.swift */; };
 /* End PBXBuildFile section */
 
 /* Begin PBXContainerItemProxy section */
@@ -72,6 +76,10 @@
 		14670A4429082D2F00AA1B96 /* AnimalsView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = AnimalsView.swift; sourceTree = "<group>"; };
 		14670A472908524000AA1B96 /* RingView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = RingView.swift; sourceTree = "<group>"; };
 		147DA8E4290959A300F33A97 /* OtherView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = OtherView.swift; sourceTree = "<group>"; };
+		147DA908290970BA00F33A97 /* View_0.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = View_0.swift; sourceTree = "<group>"; };
+		147DA90F2909A96600F33A97 /* data.xml */ = {isa = PBXFileReference; lastKnownFileType = text.xml; path = data.xml; sourceTree = "<group>"; };
+		147DA9112909ADEF00F33A97 /* OtherNewsView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = OtherNewsView.swift; sourceTree = "<group>"; };
+		147DA9162909AEC700F33A97 /* Note.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = Note.swift; sourceTree = "<group>"; };
 /* End PBXFileReference section */
 
 /* Begin PBXFrameworksBuildPhase section */
@@ -81,6 +89,7 @@
 			files = (
 				147DA9052909623800F33A97 /* RxSwift in Frameworks */,
 				147DA9032909623800F33A97 /* RxRelay in Frameworks */,
+				147DA90E2909991200F33A97 /* XMLCoder in Frameworks */,
 				147DA9012909623800F33A97 /* RxCocoa in Frameworks */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
@@ -138,6 +147,7 @@
 				140B923E28F465DC00472D77 /* Network */,
 				140B923928F4616600472D77 /* Extension */,
 				140B921028F460CD00472D77 /* Assets.xcassets */,
+				147DA90F2909A96600F33A97 /* data.xml */,
 				140B923C28F4636B00472D77 /* Assets.swift */,
 				140B924428F4817000472D77 /* Create.swift */,
 			);
@@ -176,6 +186,7 @@
 			isa = PBXGroup;
 			children = (
 				140B924228F46A6F00472D77 /* Articles.swift */,
+				147DA9162909AEC700F33A97 /* Note.swift */,
 			);
 			path = Model;
 			sourceTree = "<group>";
@@ -216,6 +227,8 @@
 		144E15182902BEA40071CE79 /* MainMenu */ = {
 			isa = PBXGroup;
 			children = (
+				147DA9102909ADD700F33A97 /* OtherNews */,
+				147DA9062909709F00F33A97 /* RXSwift */,
 				147DA8E32909599300F33A97 /* Other */,
 				14670A462908522800AA1B96 /* RingView */,
 				14670A4029082C2700AA1B96 /* HelloView */,
@@ -259,6 +272,30 @@
 			path = Other;
 			sourceTree = "<group>";
 		};
+		147DA9062909709F00F33A97 /* RXSwift */ = {
+			isa = PBXGroup;
+			children = (
+				147DA907290970AB00F33A97 /* View_0 */,
+			);
+			path = RXSwift;
+			sourceTree = "<group>";
+		};
+		147DA907290970AB00F33A97 /* View_0 */ = {
+			isa = PBXGroup;
+			children = (
+				147DA908290970BA00F33A97 /* View_0.swift */,
+			);
+			path = View_0;
+			sourceTree = "<group>";
+		};
+		147DA9102909ADD700F33A97 /* OtherNews */ = {
+			isa = PBXGroup;
+			children = (
+				147DA9112909ADEF00F33A97 /* OtherNewsView.swift */,
+			);
+			path = OtherNews;
+			sourceTree = "<group>";
+		};
 /* End PBXGroup section */
 
 /* Begin PBXNativeTarget section */
@@ -279,6 +316,7 @@
 				147DA9002909623800F33A97 /* RxCocoa */,
 				147DA9022909623800F33A97 /* RxRelay */,
 				147DA9042909623800F33A97 /* RxSwift */,
+				147DA90D2909991200F33A97 /* XMLCoder */,
 			);
 			productName = News;
 			productReference = 140B920428F460CB00472D77 /* News.app */;
@@ -354,6 +392,7 @@
 			mainGroup = 140B91FB28F460CB00472D77;
 			packageReferences = (
 				147DA8FF2909623800F33A97 /* XCRemoteSwiftPackageReference "RxSwift" */,
+				147DA90C2909991200F33A97 /* XCRemoteSwiftPackageReference "XMLCoder" */,
 			);
 			productRefGroup = 140B920528F460CB00472D77 /* Products */;
 			projectDirPath = "";
@@ -397,11 +436,13 @@
 			isa = PBXSourcesBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
+				147DA9122909ADEF00F33A97 /* OtherNewsView.swift in Sources */,
 				14670A482908524000AA1B96 /* RingView.swift in Sources */,
 				14670A4229082C3600AA1B96 /* HelloView.swift in Sources */,
 				140B924328F46A6F00472D77 /* Articles.swift in Sources */,
 				143311812902BEF6009A708E /* MainMenuView.swift in Sources */,
 				140B923B28F4617200472D77 /* UIView.swift in Sources */,
+				147DA909290970BA00F33A97 /* View_0.swift in Sources */,
 				143311862902DFA9009A708E /* WheaterView.swift in Sources */,
 				143311882902EA93009A708E /* NewsView.swift in Sources */,
 				140B924528F4817000472D77 /* Create.swift in Sources */,
@@ -410,6 +451,7 @@
 				143311832902C345009A708E /* UIStackView.swift in Sources */,
 				140B920828F460CB00472D77 /* AppDelegate.swift in Sources */,
 				140B920A28F460CB00472D77 /* SceneDelegate.swift in Sources */,
+				147DA9172909AEC700F33A97 /* Note.swift in Sources */,
 				140B923D28F4636B00472D77 /* Assets.swift in Sources */,
 				147DA8E5290959A300F33A97 /* OtherView.swift in Sources */,
 				14670A4529082D2F00AA1B96 /* AnimalsView.swift in Sources */,
@@ -748,6 +790,14 @@
 				kind = branch;
 			};
 		};
+		147DA90C2909991200F33A97 /* XCRemoteSwiftPackageReference "XMLCoder" */ = {
+			isa = XCRemoteSwiftPackageReference;
+			repositoryURL = "https://github.com/CoreOffice/XMLCoder.git";
+			requirement = {
+				kind = upToNextMajorVersion;
+				minimumVersion = 0.9.0;
+			};
+		};
 /* End XCRemoteSwiftPackageReference section */
 
 /* Begin XCSwiftPackageProductDependency section */
@@ -765,6 +815,11 @@
 			isa = XCSwiftPackageProductDependency;
 			package = 147DA8FF2909623800F33A97 /* XCRemoteSwiftPackageReference "RxSwift" */;
 			productName = RxSwift;
+		};
+		147DA90D2909991200F33A97 /* XMLCoder */ = {
+			isa = XCSwiftPackageProductDependency;
+			package = 147DA90C2909991200F33A97 /* XCRemoteSwiftPackageReference "XMLCoder" */;
+			productName = XMLCoder;
 		};
 /* End XCSwiftPackageProductDependency section */
 	};
