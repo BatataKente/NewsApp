@@ -9,23 +9,23 @@ import UIKit
 
 class MainMenuView: UIViewController {
     
-    private lazy var stack: UIStackView = {
+    private lazy var button = {(viewControllet: UIViewController) -> UIButton in
         
-        let button = {(viewControllet: UIViewController) -> UIButton in
+        let handler = {(action: UIAction) in
             
-            let handler = {(action: UIAction) in
-                
-                self.view.isUserInteractionEnabled = false
-                self.navigationController?.pushViewController(viewControllet, animated: true)
-                self.view.isUserInteractionEnabled = true
-            }
-            
-            return Create.button("\(type(of: viewControllet))",
-                                 font: Assets.font(30),
-                                 image: Assets.Images.right, handler: handler)
+            self.view.isUserInteractionEnabled = false
+            self.navigationController?.pushViewController(viewControllet, animated: true)
+            self.view.isUserInteractionEnabled = true
         }
         
-        let stack = UIStackView(arrangedSubviews: [button(NewsView()), button(WheaterView()), button(HelloView()), button(RingView())])
+        return Create.button("\(type(of: viewControllet))",
+                             font: Assets.font(30),
+                             image: Assets.Images.right, handler: handler)
+    }
+    
+    private let stack: UIStackView = {
+        
+        let stack = UIStackView()
         stack.axis = .vertical
         stack.alignment = .trailing
         stack.spacing = 5
@@ -38,6 +38,9 @@ class MainMenuView: UIViewController {
         super.viewDidLoad()
         
         title = "MainMenu"
+        
+        stack.addArrangedSubviews([button(NewsView()), button(WheaterView()), button(HelloView()), button(RingView()), button(OtherView())])
+        
         view.backgroundColor = .systemRed
         view.addSubview(stack)
         
