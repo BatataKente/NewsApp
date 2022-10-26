@@ -9,6 +9,20 @@ import UIKit
 
 struct Create {
     
+    static func textField(_ text: String? = nil,
+                          font: UIFont? = Assets.font(25),
+                          alignment: NSTextAlignment = .left) -> UITextField {
+        
+        let textField = UITextField()
+        textField.text = text
+        textField.font = font
+        textField.textAlignment = alignment
+        textField.layer.cornerRadius = 10
+        textField.backgroundColor = Assets.Colors.reverseDark
+        
+        return textField
+    }
+    
     static func stack(_ spacing: CGFloat = 20, arrangedSubviews: [UIView] = []) -> UIStackView {
         
         let stack = UIStackView(arrangedSubviews: arrangedSubviews)
