@@ -31,11 +31,10 @@ class OtherNewsView: UIViewController {
         
         Network.call("https://g1.globo.com/rss/g1/carros") {data in
             
-            let cars = Network.XML.decode(data, from: Note.self)
+            let cars = Network.XML.decode(data, from: RSS.self)
             
             print(cars as Any)
         }
-        
         
         view.addSubview(tableView)
         view.backgroundColor = .systemOrange
