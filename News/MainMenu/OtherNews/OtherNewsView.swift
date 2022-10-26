@@ -10,6 +10,8 @@ import SafariServices
 
 class OtherNewsView: UIViewController {
     
+    private var cars: RSS? = nil
+    
     private let tableView: UITableView = {
         
         let tableView = UITableView()
@@ -33,7 +35,8 @@ class OtherNewsView: UIViewController {
             
             let cars = Network.XML.decode(data, from: RSS.self)
             
-            print(cars as Any)
+            self.cars = cars
+            self.tableView.reloadData()
         }
         
         view.addSubview(tableView)
@@ -48,13 +51,17 @@ extension OtherNewsView: UITableViewDelegate, UITableViewDataSource {
     
     func tableView(_ tableView: UITableView, numberOfRowsInSection section: Int) -> Int {
         
-        3
+        return cars?.channel?.item.count ?? 0
     }
     
     func tableView(_ tableView: UITableView, cellForRowAt indexPath: IndexPath) -> UITableViewCell {
         
         let cell = tableView.dequeueReusableCell(withIdentifier: NewsViewCell.identifier,
                                                  for: indexPath) as? NewsViewCell
+        guard let item = cars?.channel?.item else {return UITableViewCell()}
+        
+        cell?.setup(item[indexPath.row].title ?? "",
+                    imageLink: String(item[indexPath.row].description?.split(separator: "\"")[1] ?? ""))
         
         return cell ?? UITableViewCell()
     }
