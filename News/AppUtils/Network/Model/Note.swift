@@ -9,12 +9,25 @@ import Foundation
 struct RSS: Codable {
     
     let channel: Channel?
+    let version: String?
 }
 
 // MARK: - Channel
 struct Channel: Codable {
     
-    let title: String?
-    let link: String?
-    let description, language, copyright: String?
+    let title, link, description, language, copyright: String?
+    let image: Image
+    let item: [Item]
+}
+
+// MARK: - Image
+struct Image: Codable {
+    
+    let url, title, link, width, height: String?
+}
+
+// MARK: - Item
+struct Item: Codable {
+    
+    let title, link, description, pubDate, category, guid: String?
 }
