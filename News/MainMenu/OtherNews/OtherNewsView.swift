@@ -15,12 +15,36 @@ class OtherNewsView: UIViewController {
     private let tableView: UITableView = {
         
         let tableView = UITableView()
-        tableView.register(NewsViewCell.self,
-                           forCellReuseIdentifier: NewsViewCell.identifier)
+        tableView.register(UITableViewCell.self,
+                           forCellReuseIdentifier: "Cell")
         tableView.backgroundColor = .systemRed
         
         return tableView
     }()
+    
+    private let cell = {(text: String,
+                         imageLink: String) -> UITableViewCell in
+        
+        let cell = UITableViewCell()
+        
+        let label = Create.label(text)
+        
+        Network.call(imageLink) {data in
+            
+            let imageView = Create.imageView(UIImage(data: data))
+            
+            cell.addSubview(imageView)
+            imageView.constraint(by: [.top, .leading, .bottom])
+            imageView.constraint(by: [.width], multiplier: 0.4)
+            
+        }
+        
+        cell.addSubview(label)
+        label.constraint(by: [.top, .trailing, .bottom])
+        label.constraint(by: [.width], multiplier: 0.55)
+        
+        return cell
+    }
     
     override func viewDidLoad() {
         
@@ -49,6 +73,15 @@ class OtherNewsView: UIViewController {
 
 extension OtherNewsView: UITableViewDelegate, UITableViewDataSource {
     
+    func tableView(_ tableView: UITableView, didSelectRowAt indexPath: IndexPath) {
+        
+        let link = cars?.channel?.link
+        guard let url = URL(string: link ?? "") else {return}
+        
+        let safari = SFSafariViewController(url: url)
+        present(safari, animated: true)
+    }
+    
     func tableView(_ tableView: UITableView, numberOfRowsInSection section: Int) -> Int {
         
         return cars?.channel?.item.count ?? 0
@@ -56,13 +89,14 @@ extension OtherNewsView: UITableViewDelegate, UITableViewDataSource {
     
     func tableView(_ tableView: UITableView, cellForRowAt indexPath: IndexPath) -> UITableViewCell {
         
-        let cell = tableView.dequeueReusableCell(withIdentifier: NewsViewCell.identifier,
-                                                 for: indexPath) as? NewsViewCell
         guard let item = cars?.channel?.item else {return UITableViewCell()}
         
-        cell?.setup(item[indexPath.row].title ?? "",
-                    imageLink: String(item[indexPath.row].description?.split(separator: "\"")[1] ?? ""))
+        return cell(item[indexPath.row].title ?? "",
+                    String(item[indexPath.row].description?.split(separator: "\"")[1] ?? ""))
+    }
+    
+    func tableView(_ tableView: UITableView, heightForRowAt indexPath: IndexPath) -> CGFloat {
         
-        return cell ?? UITableViewCell()
+        return view.frame.height/7
     }
 }
