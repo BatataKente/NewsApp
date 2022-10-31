@@ -35,7 +35,7 @@ class View_0: UIViewController {
             .subscribe(onNext: {valeu in
             
                 print(valeu)
-            })
+            }).dispose()
         
         names.accept(["Josicleison", "Josicleide"])
         

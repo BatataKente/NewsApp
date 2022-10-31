@@ -122,6 +122,7 @@ extension View_1 {
             print(favorites, search as Any)
             
         }.subscribe()
+         .dispose()
     }
 }
 
