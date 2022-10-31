@@ -33,6 +33,7 @@
 		147DA90E2909991200F33A97 /* XMLCoder in Frameworks */ = {isa = PBXBuildFile; productRef = 147DA90D2909991200F33A97 /* XMLCoder */; };
 		147DA9122909ADEF00F33A97 /* OtherNewsView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 147DA9112909ADEF00F33A97 /* OtherNewsView.swift */; };
 		147DA9172909AEC700F33A97 /* Note.swift in Sources */ = {isa = PBXBuildFile; fileRef = 147DA9162909AEC700F33A97 /* Note.swift */; };
+		1DFB8DD529102D18006CA95B /* View_1.swift in Sources */ = {isa = PBXBuildFile; fileRef = 1DFB8DD429102D18006CA95B /* View_1.swift */; };
 /* End PBXBuildFile section */
 
 /* Begin PBXContainerItemProxy section */
@@ -80,6 +81,7 @@
 		147DA90F2909A96600F33A97 /* data.xml */ = {isa = PBXFileReference; lastKnownFileType = text.xml; path = data.xml; sourceTree = "<group>"; };
 		147DA9112909ADEF00F33A97 /* OtherNewsView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = OtherNewsView.swift; sourceTree = "<group>"; };
 		147DA9162909AEC700F33A97 /* Note.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = Note.swift; sourceTree = "<group>"; };
+		1DFB8DD429102D18006CA95B /* View_1.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = View_1.swift; sourceTree = "<group>"; };
 /* End PBXFileReference section */
 
 /* Begin PBXFrameworksBuildPhase section */
@@ -275,17 +277,10 @@
 		147DA9062909709F00F33A97 /* RXSwift */ = {
 			isa = PBXGroup;
 			children = (
-				147DA907290970AB00F33A97 /* View_0 */,
+				147DA908290970BA00F33A97 /* View_0.swift */,
+				1DFB8DD429102D18006CA95B /* View_1.swift */,
 			);
 			path = RXSwift;
-			sourceTree = "<group>";
-		};
-		147DA907290970AB00F33A97 /* View_0 */ = {
-			isa = PBXGroup;
-			children = (
-				147DA908290970BA00F33A97 /* View_0.swift */,
-			);
-			path = View_0;
 			sourceTree = "<group>";
 		};
 		147DA9102909ADD700F33A97 /* OtherNews */ = {
@@ -444,6 +439,7 @@
 				140B923B28F4617200472D77 /* UIView.swift in Sources */,
 				147DA909290970BA00F33A97 /* View_0.swift in Sources */,
 				143311862902DFA9009A708E /* WheaterView.swift in Sources */,
+				1DFB8DD529102D18006CA95B /* View_1.swift in Sources */,
 				143311882902EA93009A708E /* NewsView.swift in Sources */,
 				140B924528F4817000472D77 /* Create.swift in Sources */,
 				140B924028F465EB00472D77 /* Network.swift in Sources */,

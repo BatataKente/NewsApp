@@ -11,22 +11,25 @@ struct Create {
     
     static func textField(_ text: String? = nil,
                           font: UIFont? = Assets.font(25),
-                          alignment: NSTextAlignment = .left) -> UITextField {
+                          alignment: NSTextAlignment = .left,
+                          background: UIColor? = Assets.Colors.reverseDark) -> UITextField {
         
         let textField = UITextField()
         textField.text = text
         textField.font = font
         textField.textAlignment = alignment
         textField.layer.cornerRadius = 10
-        textField.backgroundColor = Assets.Colors.reverseDark
+        textField.backgroundColor = background
         
         return textField
     }
     
-    static func stack(_ spacing: CGFloat = 20, arrangedSubviews: [UIView] = []) -> UIStackView {
+    static func stack(_ spacing: CGFloat = 20,
+                      arrangedSubviews: [UIView] = [],
+                      axis: NSLayoutConstraint.Axis = .vertical) -> UIStackView {
         
         let stack = UIStackView(arrangedSubviews: arrangedSubviews)
-        stack.axis = .vertical
+        stack.axis = axis
         stack.spacing = spacing
         stack.alignment = .center
         

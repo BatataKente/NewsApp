@@ -6,6 +6,7 @@
 //
 
 import UIKit
+import RxSwift
 import RxRelay
 
 class View_0: UIViewController {
@@ -21,6 +22,7 @@ class View_0: UIViewController {
         view.backgroundColor = .systemPurple
         
         names.asObservable()
+            .throttle(RxTimeInterval.milliseconds(500), scheduler: MainScheduler.instance)
             .filter {valeu in
                 
                 return valeu.count > 1
@@ -30,10 +32,10 @@ class View_0: UIViewController {
                 
                 return "users: \(valeu)"
             }
-            .subscribe {valeu in
+            .subscribe(onNext: {valeu in
             
                 print(valeu)
-            }
+            })
         
         names.accept(["Josicleison", "Josicleide"])
         
