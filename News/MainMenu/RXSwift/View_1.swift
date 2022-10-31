@@ -120,6 +120,7 @@ extension View_1 {
                                  customView.searchTextField.rx.text) {car, favorites, search in
             
             print(favorites, search as Any)
+            
         }.subscribe()
     }
 }
