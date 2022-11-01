@@ -33,6 +33,7 @@
 		147DA90E2909991200F33A97 /* XMLCoder in Frameworks */ = {isa = PBXBuildFile; productRef = 147DA90D2909991200F33A97 /* XMLCoder */; };
 		147DA9122909ADEF00F33A97 /* OtherNewsView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 147DA9112909ADEF00F33A97 /* OtherNewsView.swift */; };
 		147DA9172909AEC700F33A97 /* Note.swift in Sources */ = {isa = PBXBuildFile; fileRef = 147DA9162909AEC700F33A97 /* Note.swift */; };
+		1D4C03E1291144980010DB93 /* View_2.swift in Sources */ = {isa = PBXBuildFile; fileRef = 1D4C03E0291144980010DB93 /* View_2.swift */; };
 		1DFB8DD529102D18006CA95B /* View_1.swift in Sources */ = {isa = PBXBuildFile; fileRef = 1DFB8DD429102D18006CA95B /* View_1.swift */; };
 /* End PBXBuildFile section */
 
@@ -81,6 +82,7 @@
 		147DA90F2909A96600F33A97 /* data.xml */ = {isa = PBXFileReference; lastKnownFileType = text.xml; path = data.xml; sourceTree = "<group>"; };
 		147DA9112909ADEF00F33A97 /* OtherNewsView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = OtherNewsView.swift; sourceTree = "<group>"; };
 		147DA9162909AEC700F33A97 /* Note.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = Note.swift; sourceTree = "<group>"; };
+		1D4C03E0291144980010DB93 /* View_2.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = View_2.swift; sourceTree = "<group>"; };
 		1DFB8DD429102D18006CA95B /* View_1.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = View_1.swift; sourceTree = "<group>"; };
 /* End PBXFileReference section */
 
@@ -279,6 +281,7 @@
 			children = (
 				147DA908290970BA00F33A97 /* View_0.swift */,
 				1DFB8DD429102D18006CA95B /* View_1.swift */,
+				1D4C03E0291144980010DB93 /* View_2.swift */,
 			);
 			path = RXSwift;
 			sourceTree = "<group>";
@@ -448,6 +451,7 @@
 				140B920828F460CB00472D77 /* AppDelegate.swift in Sources */,
 				140B920A28F460CB00472D77 /* SceneDelegate.swift in Sources */,
 				147DA9172909AEC700F33A97 /* Note.swift in Sources */,
+				1D4C03E1291144980010DB93 /* View_2.swift in Sources */,
 				140B923D28F4636B00472D77 /* Assets.swift in Sources */,
 				147DA8E5290959A300F33A97 /* OtherView.swift in Sources */,
 				14670A4529082D2F00AA1B96 /* AnimalsView.swift in Sources */,
