@@ -72,7 +72,9 @@ class OtherView: UIViewController {
         textField.constraint([.leading: 10,.trailing: -10])
         
         button.constraint(to: textField, with: [.top:.bottom])
-        button.constraint(to: view.safeAreaLayoutGuide, by: [.leading,.trailing,.bottom])
+        button.constraint(to: view.keyboardLayoutGuide, with: [.leading:.leading,
+                                                               .trailing:.trailing,
+                                                               .bottom:.top])
     }
     
     private func button(_ title: String = "Adicionar") -> UIButton {
@@ -84,6 +86,9 @@ class OtherView: UIViewController {
             
             self.names.append(texts ?? [text])
             self.tableView.reloadData()
+            
+            self.textField.text = ""
+            self.view.endEditing(true)
         }
     }
 }

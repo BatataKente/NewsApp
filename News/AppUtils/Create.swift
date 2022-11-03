@@ -11,12 +11,14 @@ struct Create {
     
     static func textField(_ text: String? = nil,
                           font: UIFont? = Assets.font(25),
+                          textColor: UIColor? = Assets.Colors.dark,
                           alignment: NSTextAlignment = .left,
                           background: UIColor? = Assets.Colors.reverseDark) -> UITextField {
         
         let textField = UITextField()
         textField.text = text
         textField.font = font
+        textField.textColor = textColor
         textField.textAlignment = alignment
         textField.layer.cornerRadius = 10
         textField.backgroundColor = background
