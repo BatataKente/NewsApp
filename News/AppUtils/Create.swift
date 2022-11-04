@@ -53,13 +53,17 @@ struct Create {
     
     static func label(_ text: String? = nil,
                       font: UIFont? = Assets.font(25),
-                      alignment: NSTextAlignment = .left) -> UILabel {
+                      alignment: NSTextAlignment = .left,
+                      background: UIColor? = .clear,
+                      alpha: CGFloat = 1) -> UILabel {
         
         let label = UILabel()
         label.text = text
         label.font = font
         label.textAlignment = alignment
         label.numberOfLines = 0
+        label.backgroundColor = background
+        label.alpha = alpha
         
         return label
     }

@@ -12,9 +12,10 @@ class Network {
     
     static let shared = Network()
     
-    enum Constants {
+    enum EndPoints {
         
         static let url = "https://newsapi.org/v2/top-headlines?country=US&apiKey="
+        static let omdbapi = "https://www.omdbapi.com/?s=Batman&page=2&apikey="
     }
     
     private enum Keys {
@@ -65,6 +66,34 @@ class Network {
                 
                 print("ERROR: \(error)"); return nil
             }
+        }
+    }
+    
+    struct Async {
+        
+        static func call(from url: String?, withKey: Bool = true) async -> Data? {
+
+            guard var url = url else {print("ERROR: Wrong url"); return nil}
+            if withKey {url += "f1a110d5"}
+            guard let url = URL(string: url) else {print("ERROR: Wrong url"); return nil}
+
+            do {
+
+                let (data, response) = try await URLSession.shared.data(from: url)
+                print("RESPONSE:", response)
+
+                return data
+            }
+            catch {print("ERROR: \(error)"); return nil}
+        }
+
+        static func decode<T: Codable>(_ what: T.Type, from data: Data) -> T? {
+
+            do {
+
+                return try JSONDecoder().decode(what.self, from: data)
+            }
+            catch {print("ERROR: \(error)"); return nil}
         }
     }
 }
