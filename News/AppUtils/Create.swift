@@ -39,7 +39,8 @@ struct Create {
     }
     
     static func imageView(_ image: UIImage? = nil,
-                          color: UIColor? = nil) -> UIImageView {
+                          color: UIColor? = nil,
+                          alpha: CGFloat = 1) -> UIImageView {
         
         let imageView = UIImageView(image: image)
         imageView.contentMode = .scaleAspectFit
@@ -47,6 +48,7 @@ struct Create {
         imageView.layer.cornerRadius = 5
         imageView.tintColor = color
         imageView.layer.masksToBounds = true
+        imageView.alpha = alpha
         
         return imageView
     }

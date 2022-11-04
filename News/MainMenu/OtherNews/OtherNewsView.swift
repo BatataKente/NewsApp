@@ -57,7 +57,7 @@ class OtherNewsView: UIViewController {
         
         Network.call("https://g1.globo.com/rss/g1/carros") {data in
             
-            let cars = Network.XML.decode(data, from: RSS.self)
+            let cars = Network.XML.decode(RSS.self, from: data)
             
             self.cars = cars
             self.tableView.reloadData()

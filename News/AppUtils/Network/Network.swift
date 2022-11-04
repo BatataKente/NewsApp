@@ -55,7 +55,7 @@ class Network {
     
     struct XML {
         
-        static func decode<T: Codable>(_ data: Data, from type: T.Type) -> T? {
+        static func decode<T: Codable>(_ model: T.Type, from data: Data) -> T? {
             
             do {
                 
