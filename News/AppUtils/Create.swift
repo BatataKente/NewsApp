@@ -11,22 +11,27 @@ struct Create {
     
     static func textField(_ text: String? = nil,
                           font: UIFont? = Assets.font(25),
-                          alignment: NSTextAlignment = .left) -> UITextField {
+                          textColor: UIColor? = Assets.Colors.dark,
+                          alignment: NSTextAlignment = .left,
+                          background: UIColor? = Assets.Colors.reverseDark) -> UITextField {
         
         let textField = UITextField()
         textField.text = text
         textField.font = font
+        textField.textColor = textColor
         textField.textAlignment = alignment
         textField.layer.cornerRadius = 10
-        textField.backgroundColor = Assets.Colors.reverseDark
+        textField.backgroundColor = background
         
         return textField
     }
     
-    static func stack(_ spacing: CGFloat = 20, arrangedSubviews: [UIView] = []) -> UIStackView {
+    static func stack(_ spacing: CGFloat = 20,
+                      arrangedSubviews: [UIView] = [],
+                      axis: NSLayoutConstraint.Axis = .vertical) -> UIStackView {
         
         let stack = UIStackView(arrangedSubviews: arrangedSubviews)
-        stack.axis = .vertical
+        stack.axis = axis
         stack.spacing = spacing
         stack.alignment = .center
         
@@ -48,13 +53,17 @@ struct Create {
     
     static func label(_ text: String? = nil,
                       font: UIFont? = Assets.font(25),
-                      alignment: NSTextAlignment = .left) -> UILabel {
+                      alignment: NSTextAlignment = .left,
+                      background: UIColor? = .clear,
+                      alpha: CGFloat = 1) -> UILabel {
         
         let label = UILabel()
         label.text = text
         label.font = font
         label.textAlignment = alignment
         label.numberOfLines = 0
+        label.backgroundColor = background
+        label.alpha = alpha
         
         return label
     }
