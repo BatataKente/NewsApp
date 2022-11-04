@@ -35,24 +35,5 @@ class BatmanDetailsView: UIViewController {
         title = section.Title
         
         view.backgroundColor = .black
-        
-        var strings: [String] = []
-        
-        Network.call("https://www.freeimages.com/search/fall") {data in
-            
-            print("$$$", data)
-            
-            guard var html = String(data: data, encoding: .ascii) else {return}
-            
-            for string in html.split(separator: "\"") {
-                
-                if string.contains(".png") {
-                    
-                    strings.append(String(string))
-                }
-            }
-            
-            print(strings)
-        }
     }
 }

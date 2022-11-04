@@ -10,6 +10,7 @@ import UIKit
 struct Create {
     
     static func textField(_ text: String? = nil,
+                          placeholder: String? = nil,
                           font: UIFont? = Assets.font(25),
                           textColor: UIColor? = Assets.Colors.dark,
                           alignment: NSTextAlignment = .left,
@@ -17,6 +18,8 @@ struct Create {
         
         let textField = UITextField()
         textField.text = text
+        textField.attributedPlaceholder = NSAttributedString(string: placeholder ?? "",
+                                                             attributes: [NSAttributedString.Key.font: font ?? UIFont()])
         textField.font = font
         textField.textColor = textColor
         textField.textAlignment = alignment
