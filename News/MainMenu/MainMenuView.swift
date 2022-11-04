@@ -52,7 +52,8 @@ class MainMenuView: UIViewController {
                                    button(View_1()),
                                    button(view_2),
                                    button(OtherNewsView()),
-                                   button(BatmanView())])
+                                   button(BatmanView()),
+                                   button(PageView())])
         
         view.backgroundColor = .systemRed
         view.addSubview(stack)

@@ -10,6 +10,7 @@ import UIKit
 struct Create {
     
     static func textField(_ text: String? = nil,
+                          placeholder: String? = nil,
                           font: UIFont? = Assets.font(25),
                           textColor: UIColor? = Assets.Colors.dark,
                           alignment: NSTextAlignment = .left,
@@ -17,6 +18,8 @@ struct Create {
         
         let textField = UITextField()
         textField.text = text
+        textField.attributedPlaceholder = NSAttributedString(string: placeholder ?? "",
+                                                             attributes: [NSAttributedString.Key.font: font ?? UIFont()])
         textField.font = font
         textField.textColor = textColor
         textField.textAlignment = alignment
@@ -39,7 +42,8 @@ struct Create {
     }
     
     static func imageView(_ image: UIImage? = nil,
-                          color: UIColor? = nil) -> UIImageView {
+                          color: UIColor? = nil,
+                          alpha: CGFloat = 1) -> UIImageView {
         
         let imageView = UIImageView(image: image)
         imageView.contentMode = .scaleAspectFit
@@ -47,6 +51,7 @@ struct Create {
         imageView.layer.cornerRadius = 5
         imageView.tintColor = color
         imageView.layer.masksToBounds = true
+        imageView.alpha = alpha
         
         return imageView
     }

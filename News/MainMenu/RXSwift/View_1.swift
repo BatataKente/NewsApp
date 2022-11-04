@@ -93,7 +93,7 @@ class View_1: UIViewController {
         
         Network.call("https://g1.globo.com/rss/g1/carros") {data in
             
-            guard let cars = Network.XML.decode(data, from: RSS.self) else {return}
+            guard let cars = Network.XML.decode(RSS.self, from: data) else {return}
             
             self.allCars.accept(cars)
             self.tableView.reloadData()

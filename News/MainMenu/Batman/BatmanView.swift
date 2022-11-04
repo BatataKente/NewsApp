@@ -9,7 +9,7 @@ import UIKit
 
 class BatmanView: UIViewController {
     
-    private var batman: Batman? = nil
+    private let batmanViewModel = BatmanViewModel()
     
     private let collectionView: UICollectionView = {
         
@@ -39,6 +39,7 @@ class BatmanView: UIViewController {
         title = "\(type(of: self))"
         
         view.addSubviews([collectionView, label, pageControl])
+        view.backgroundColor = .black
         
         collectionView.dataSource = self
         collectionView.delegate = self
@@ -51,42 +52,30 @@ class BatmanView: UIViewController {
         
         pageControl.constraint(to: collectionView, by: [.leading,.trailing,.bottom])
         
-        Task {
-            
-            guard let data = await Network.Async.call(from: Network.EndPoints.omdbapi) else {return}
-            guard let batman = Network.Async.decode(Batman.self, from: data) else {return}
-            
-            self.batman = batman
-            collectionView.reloadData()
-        }
+        batmanViewModel.setupCollectionView(collectionView)
     }
 }
 
 extension BatmanView: UICollectionViewDataSource, UICollectionViewDelegate, UICollectionViewDelegateFlowLayout {
     
+    func collectionView(_ collectionView: UICollectionView, didSelectItemAt indexPath: IndexPath) {
+        
+        guard let section = batmanViewModel.batman?.Search?[indexPath.row] else {return}
+        navigationController?.pushViewController(BatmanDetailsView(section), animated: true)
+    }
+    
     func collectionView(_ collectionView: UICollectionView, numberOfItemsInSection section: Int) -> Int {
         
-        pageControl.numberOfPages = batman?.Search?.count ?? 0
-        label.text = batman?.Search?.first?.Title
-        return batman?.Search?.count ?? 0
+        pageControl.numberOfPages = batmanViewModel.batman?.Search?.count ?? 0
+        label.text = batmanViewModel.batman?.Search?.first?.Title
+        return batmanViewModel.batman?.Search?.count ?? 0
     }
     
     func collectionView(_ collectionView: UICollectionView, cellForItemAt indexPath: IndexPath) -> UICollectionViewCell {
         
         let cell = collectionView.dequeueReusableCell(withReuseIdentifier: "Cell", for: indexPath)
         
-        guard let section = batman?.Search?[indexPath.row] else {return cell}
-        
-        Task {
-            
-            guard let data = await Network.Async.call(from: section.Poster, withKey: false) else {return}
-            
-            let imageView = UIImageView(image: UIImage(data: data))
-            
-            cell.contentView.addSubview(imageView)
-            
-            imageView.constraint(by: [.top,.leading,.trailing,.bottom])
-        }
+        batmanViewModel.setupCell(cell, section: batmanViewModel.batman?.Search?[indexPath.row])
         
         return cell
     }
@@ -101,11 +90,11 @@ extension BatmanView: UICollectionViewDataSource, UICollectionViewDelegate, UICo
         
         let currentPageIndex = Int((scrollView.contentOffset.x + (view.frame.width/2))/view.frame.width)
         
-        if currentPageIndex > 0 && currentPageIndex < batman?.Search?.count ?? 0 {
+        if currentPageIndex > 0 && currentPageIndex < batmanViewModel.batman?.Search?.count ?? 0 {
             
             pageControl.currentPage = currentPageIndex
             
-            label.text = batman?.Search?[currentPageIndex].Title
+            label.text = batmanViewModel.batman?.Search?[currentPageIndex].Title
         }
     }
 }

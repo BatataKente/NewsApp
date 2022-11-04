@@ -34,7 +34,10 @@
 		147DA9122909ADEF00F33A97 /* OtherNewsView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 147DA9112909ADEF00F33A97 /* OtherNewsView.swift */; };
 		147DA9172909AEC700F33A97 /* Note.swift in Sources */ = {isa = PBXBuildFile; fileRef = 147DA9162909AEC700F33A97 /* Note.swift */; };
 		1D4C03E1291144980010DB93 /* View_2.swift in Sources */ = {isa = PBXBuildFile; fileRef = 1D4C03E0291144980010DB93 /* View_2.swift */; };
+		1D53308529159F5E006566B6 /* PageView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 1D53308429159F5E006566B6 /* PageView.swift */; };
 		1D9F16BC29157717000DC960 /* Batman.swift in Sources */ = {isa = PBXBuildFile; fileRef = 1D9F16BB29157717000DC960 /* Batman.swift */; };
+		1D9F16C0291586BB000DC960 /* BatmanViewModel.swift in Sources */ = {isa = PBXBuildFile; fileRef = 1D9F16BF291586BB000DC960 /* BatmanViewModel.swift */; };
+		1D9F16C329158A3D000DC960 /* BatmanDetailsView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 1D9F16C229158A3D000DC960 /* BatmanDetailsView.swift */; };
 		1DF9E76B291560630048C56D /* BatmanView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 1DF9E76A291560630048C56D /* BatmanView.swift */; };
 		1DFB8DD529102D18006CA95B /* View_1.swift in Sources */ = {isa = PBXBuildFile; fileRef = 1DFB8DD429102D18006CA95B /* View_1.swift */; };
 /* End PBXBuildFile section */
@@ -85,7 +88,10 @@
 		147DA9112909ADEF00F33A97 /* OtherNewsView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = OtherNewsView.swift; sourceTree = "<group>"; };
 		147DA9162909AEC700F33A97 /* Note.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = Note.swift; sourceTree = "<group>"; };
 		1D4C03E0291144980010DB93 /* View_2.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = View_2.swift; sourceTree = "<group>"; };
+		1D53308429159F5E006566B6 /* PageView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = PageView.swift; sourceTree = "<group>"; };
 		1D9F16BB29157717000DC960 /* Batman.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = Batman.swift; sourceTree = "<group>"; };
+		1D9F16BF291586BB000DC960 /* BatmanViewModel.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = BatmanViewModel.swift; sourceTree = "<group>"; };
+		1D9F16C229158A3D000DC960 /* BatmanDetailsView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = BatmanDetailsView.swift; sourceTree = "<group>"; };
 		1DF9E76A291560630048C56D /* BatmanView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = BatmanView.swift; sourceTree = "<group>"; };
 		1DFB8DD429102D18006CA95B /* View_1.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = View_1.swift; sourceTree = "<group>"; };
 /* End PBXFileReference section */
@@ -236,6 +242,7 @@
 		144E15182902BEA40071CE79 /* MainMenu */ = {
 			isa = PBXGroup;
 			children = (
+				1D53308329159F48006566B6 /* Page */,
 				1DF9E767291560440048C56D /* Batman */,
 				147DA9102909ADD700F33A97 /* OtherNews */,
 				147DA9062909709F00F33A97 /* RXSwift */,
@@ -300,9 +307,27 @@
 			path = OtherNews;
 			sourceTree = "<group>";
 		};
+		1D53308329159F48006566B6 /* Page */ = {
+			isa = PBXGroup;
+			children = (
+				1D53308429159F5E006566B6 /* PageView.swift */,
+			);
+			path = Page;
+			sourceTree = "<group>";
+		};
+		1D9F16C129158A2D000DC960 /* BatmanDetails */ = {
+			isa = PBXGroup;
+			children = (
+				1D9F16C229158A3D000DC960 /* BatmanDetailsView.swift */,
+			);
+			path = BatmanDetails;
+			sourceTree = "<group>";
+		};
 		1DF9E767291560440048C56D /* Batman */ = {
 			isa = PBXGroup;
 			children = (
+				1D9F16C129158A2D000DC960 /* BatmanDetails */,
+				1D9F16BF291586BB000DC960 /* BatmanViewModel.swift */,
 				1DF9E76A291560630048C56D /* BatmanView.swift */,
 			);
 			path = Batman;
@@ -449,11 +474,13 @@
 			buildActionMask = 2147483647;
 			files = (
 				147DA9122909ADEF00F33A97 /* OtherNewsView.swift in Sources */,
+				1D9F16C329158A3D000DC960 /* BatmanDetailsView.swift in Sources */,
 				14670A482908524000AA1B96 /* RingView.swift in Sources */,
 				14670A4229082C3600AA1B96 /* HelloView.swift in Sources */,
 				140B924328F46A6F00472D77 /* Articles.swift in Sources */,
 				143311812902BEF6009A708E /* MainMenuView.swift in Sources */,
 				140B923B28F4617200472D77 /* UIView.swift in Sources */,
+				1D53308529159F5E006566B6 /* PageView.swift in Sources */,
 				1DF9E76B291560630048C56D /* BatmanView.swift in Sources */,
 				147DA909290970BA00F33A97 /* View_0.swift in Sources */,
 				143311862902DFA9009A708E /* WheaterView.swift in Sources */,
@@ -464,6 +491,7 @@
 				14384DDA29085D7B00332933 /* CALayer.swift in Sources */,
 				143311832902C345009A708E /* UIStackView.swift in Sources */,
 				140B920828F460CB00472D77 /* AppDelegate.swift in Sources */,
+				1D9F16C0291586BB000DC960 /* BatmanViewModel.swift in Sources */,
 				140B920A28F460CB00472D77 /* SceneDelegate.swift in Sources */,
 				147DA9172909AEC700F33A97 /* Note.swift in Sources */,
 				1D9F16BC29157717000DC960 /* Batman.swift in Sources */,
