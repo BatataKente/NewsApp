@@ -13,6 +13,7 @@ struct Assets {
         
         static let reverseDark = UIColor(named: "reverseDark")
         static let lightBlue = UIColor(named: "lightBlue")
+        static let dark = UIColor(named: "dark")
     }
     
     static let font = {(size: CGFloat) -> UIFont in

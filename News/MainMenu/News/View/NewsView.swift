@@ -37,7 +37,7 @@ class NewsView: UIViewController {
         tableView.constraint(to: view.safeAreaLayoutGuide,
                              by: [.top,.leading,.trailing,.bottom])
         
-        Network.call(Network.Constants.url, isRequiredKey: true) {[weak self] data in
+        Network.call(Network.EndPoints.url, isRequiredKey: true) {[weak self] data in
 
             guard let articles = Network.decode(data, from: Articles.self)?.articles else {return}
 

@@ -39,7 +39,20 @@ class MainMenuView: UIViewController {
         
         title = "MainMenu"
         
-        stack.addArrangedSubviews([button(NewsView()), button(WheaterView()), button(HelloView()), button(RingView()), button(OtherView()), button(View_0()), button(OtherNewsView())])
+        let view_2 = View_2()
+        view_2.view.backgroundColor = .systemBrown
+        view_2.title = "\(type(of: view_2))"
+        
+        stack.addArrangedSubviews([button(NewsView()),
+                                   button(WheaterView()),
+                                   button(HelloView()),
+                                   button(RingView()),
+                                   button(OtherView()),
+                                   button(View_0()),
+                                   button(View_1()),
+                                   button(view_2),
+                                   button(OtherNewsView()),
+                                   button(BatmanView())])
         
         view.backgroundColor = .systemRed
         view.addSubview(stack)
