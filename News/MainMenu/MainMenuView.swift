@@ -9,7 +9,7 @@ import UIKit
 
 class MainMenuView: UIViewController {
     
-    private lazy var button = {(viewControllet: UIViewController) -> UIButton in
+    lazy var button = {(viewControllet: UIViewController) -> UIButton in
         
         let handler = {(action: UIAction) in
             
@@ -23,7 +23,7 @@ class MainMenuView: UIViewController {
                              image: Assets.Images.right, handler: handler)
     }
     
-    private let stack: UIStackView = {
+    let stack: UIStackView = {
         
         let stack = UIStackView()
         stack.axis = .vertical
@@ -48,9 +48,7 @@ class MainMenuView: UIViewController {
                                    button(HelloView()),
                                    button(RingView()),
                                    button(OtherView()),
-                                   button(View_0()),
-                                   button(View_1()),
-                                   button(view_2),
+                                   button(RXSwiftMenuView()),
                                    button(OtherNewsView()),
                                    button(BatmanView()),
                                    button(PageView())])

@@ -19,24 +19,8 @@ class SceneDelegate: UIResponder, UIWindowSceneDelegate {
         
         window = UIWindow(windowScene: windowScene)
         
-        let navigationController: UINavigationController = {
-            
-            let navigationController = UINavigationController(rootViewController: MainMenuView())
-            navigationController.navigationBar.prefersLargeTitles = true
-            navigationController.navigationBar.tintColor = Assets.Colors.reverseDark
-            
-            let standardAppearance = UINavigationBarAppearance()
-
-            standardAppearance.configureWithOpaqueBackground()
-            standardAppearance.backgroundColor = UIColor.clear
-
-            navigationController.navigationBar.standardAppearance = standardAppearance
-            navigationController.navigationBar.scrollEdgeAppearance = standardAppearance
-            
-            return navigationController
-        }()
-        
-        window?.rootViewController = navigationController
+        window?.rootViewController = Create.navigationController(rootViewController: View_2())
+//        window?.rootViewController = Create.navigationController(rootViewController: MainMenuView())
         window?.makeKeyAndVisible()
     }
 

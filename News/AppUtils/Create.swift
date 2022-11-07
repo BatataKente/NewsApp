@@ -9,6 +9,23 @@ import UIKit
 
 struct Create {
     
+    static func navigationController(rootViewController: UIViewController) -> UINavigationController {
+        
+        let navigationController = UINavigationController(rootViewController: rootViewController)
+        navigationController.navigationBar.prefersLargeTitles = true
+        navigationController.navigationBar.tintColor = Assets.Colors.reverseDark
+        
+        let standardAppearance = UINavigationBarAppearance()
+
+        standardAppearance.configureWithOpaqueBackground()
+        standardAppearance.backgroundColor = UIColor.clear
+
+        navigationController.navigationBar.standardAppearance = standardAppearance
+        navigationController.navigationBar.scrollEdgeAppearance = standardAppearance
+        
+        return navigationController
+    }
+    
     static func textField(_ text: String? = nil,
                           placeholder: String? = nil,
                           font: UIFont? = Assets.font(25),

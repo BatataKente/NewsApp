@@ -36,10 +36,8 @@ struct Assets {
         static let cloud = UIImage(systemName: "cloud.fill")
         static let cloudHail = UIImage(systemName: "cloud.hail.fill")
         
-        static let wheater_0 = UIImage(named: "Wheater_0")
-        static let wheater_1 = UIImage(named: "Wheater_1")
-        static let wheater_2 = UIImage(named: "Wheater_2")
-        static let wheater_3 = UIImage(named: "Wheater_3")
-        static let wheater_4 = UIImage(named: "Wheater_4")
+        static let hamburguer = UIImage(named: "Hamburguer")
+        static let pizza = UIImage(named: "Pizza")
+        static let salmon = UIImage(named: "Salmon")
     }
 }
