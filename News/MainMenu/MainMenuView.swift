@@ -39,7 +39,7 @@ class MainMenuView: UIViewController {
         
         title = "MainMenu"
         
-        let view_2 = View_2()
+        let view_2 = FoodView()
         view_2.view.backgroundColor = .systemBrown
         view_2.title = "\(type(of: view_2))"
         
@@ -48,6 +48,7 @@ class MainMenuView: UIViewController {
                                    button(HelloView()),
                                    button(RingView()),
                                    button(OtherView()),
+                                   button(WrongWayDecodeView()),
                                    button(RXSwiftMenuView()),
                                    button(OtherNewsView()),
                                    button(BatmanView()),

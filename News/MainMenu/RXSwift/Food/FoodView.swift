@@ -9,7 +9,7 @@ import UIKit
 import RxSwift
 import RxCocoa
 
-class View_2: UIViewController {
+class FoodView: UIViewController {
     
     private let items = Observable.just([Food(name: "pizza", image: Assets.Images.pizza),
                                          Food(name: "hamburguer", image: Assets.Images.hamburguer),
@@ -31,21 +31,15 @@ class View_2: UIViewController {
         
         title = "\(type(of: self))"
         
-        table.view.register(UITableViewCell.self, forCellReuseIdentifier: table.reuseIdentifier)
+        table.view.register(FoodViewCell.self, forCellReuseIdentifier: table.reuseIdentifier)
         
-        items.bind(to: table.view.rx.items(cellIdentifier: table.reuseIdentifier)) {tableView, item, cell in
+        items.bind(to: table.view.rx.items(cellIdentifier: table.reuseIdentifier,
+                                           cellType: FoodViewCell.self)) {tableView, item, cell in
             
-            let stack = UIStackView(arrangedSubviews: [Create.label(item.name), Create.imageView(item.image)])
-            stack.backgroundColor = .lightGray
-            stack.distribution = .fillEqually
+            cell.delegate = self
+            cell.foodImageView.image = item.image
+            cell.foodLabel.text = item.name
             
-            stack.isLayoutMarginsRelativeArrangement = true
-            stack.layoutMargins = UIEdgeInsets(top: 0, left: 10, bottom: 0, right: 10)
-            
-            cell.contentView.addSubview(stack)
-            cell.backgroundColor = .white
-            
-            stack.constraint([.top: 0, .leading: 10, .trailing: -10, .bottom: 0])
         }.disposed(by: bag)
         
         view.backgroundColor = .gray
@@ -54,3 +48,15 @@ class View_2: UIViewController {
         table.view.constraint(to: view.safeAreaLayoutGuide, by: [.top,.leading,.trailing,.bottom])
     }
 }
+
+extension FoodView: FoodViewCellDelegate {
+    
+    func changeScreen(_ image: UIImage?, title: String?) {
+        
+        let foodDetailsView = FoodDetailsView(image)
+        foodDetailsView.title = title
+        
+        navigationController?.pushViewController(foodDetailsView, animated: true)
+    }
+}
+    
