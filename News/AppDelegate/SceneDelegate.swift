@@ -19,8 +19,7 @@ class SceneDelegate: UIResponder, UIWindowSceneDelegate {
         
         window = UIWindow(windowScene: windowScene)
         
-        window?.rootViewController = Create.navigationController(rootViewController: View_2())
-//        window?.rootViewController = Create.navigationController(rootViewController: MainMenuView())
+        window?.rootViewController = Create.navigationController(rootViewController: MainMenuView())
         window?.makeKeyAndVisible()
     }
 
