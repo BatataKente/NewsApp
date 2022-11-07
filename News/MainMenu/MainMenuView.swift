@@ -9,17 +9,17 @@ import UIKit
 
 class MainMenuView: UIViewController {
     
-    lazy var button = {(viewControllet: UIViewController) -> UIButton in
+    lazy var button = {(viewController: UIViewController) -> UIButton in
         
         let handler = {(action: UIAction) in
             
             self.view.isUserInteractionEnabled = false
-            self.navigationController?.pushViewController(viewControllet, animated: true)
+            self.navigationController?.pushViewController(viewController, animated: true)
             self.view.isUserInteractionEnabled = true
         }
         
-        return Create.button("\(type(of: viewControllet))",
-                             font: Assets.font(30),
+        return Create.button("\(type(of: viewController))",
+                             font: Assets.font(self.view.frame.width/13),
                              image: Assets.Images.right, handler: handler)
     }
     
