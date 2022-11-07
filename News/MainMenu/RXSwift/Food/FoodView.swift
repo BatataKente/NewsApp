@@ -33,6 +33,14 @@ class FoodView: UIViewController {
         
         table.view.register(UITableViewCell.self, forCellReuseIdentifier: table.reuseIdentifier)
         
+        table.view.rx.modelSelected(Food.self).subscribe {food in
+            
+            let foodDetailsView = FoodDetailsView(food.image)
+            foodDetailsView.title = food.name
+            
+            self.navigationController?.pushViewController(foodDetailsView, animated: true)
+        }.disposed(by: bag)
+        
         items.bind(to: table.view.rx.items(cellIdentifier: table.reuseIdentifier,
                                            cellType: UITableViewCell.self)) {tableView, item, cell in
             
@@ -48,11 +56,6 @@ class FoodView: UIViewController {
             
             stack.constraint([.top: 0, .leading: 10, .trailing: -10, .bottom: 0])
             
-        }.disposed(by: bag)
-        
-        table.view.rx.modelSelected(Food.self).subscribe {food in
-            
-            self.navigationController?.pushViewController(FoodDetailsView(food.image), animated: true)
         }.disposed(by: bag)
         
         view.backgroundColor = .gray
