@@ -21,6 +21,6 @@ class RXSwiftMenuView: MainMenuView {
         
         stack.addArrangedSubviews([button(View_0()),
                                    button(View_1()),
-                                   button(View_2())])
+                                   button(FoodView())])
     }
 }
