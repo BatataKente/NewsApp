@@ -31,14 +31,30 @@ class FoodView: UIViewController {
         
         title = "\(type(of: self))"
         
-        table.view.register(FoodViewCell.self, forCellReuseIdentifier: table.reuseIdentifier)
+        table.view.register(UITableViewCell.self, forCellReuseIdentifier: table.reuseIdentifier)
+        
+        table.view.rx.modelSelected(Food.self).subscribe {food in
+            
+            let foodDetailsView = FoodDetailsView(food.image)
+            foodDetailsView.title = food.name
+            
+            self.navigationController?.pushViewController(foodDetailsView, animated: true)
+        }.disposed(by: bag)
         
         items.bind(to: table.view.rx.items(cellIdentifier: table.reuseIdentifier,
-                                           cellType: FoodViewCell.self)) {tableView, item, cell in
+                                           cellType: UITableViewCell.self)) {tableView, item, cell in
             
-            cell.delegate = self
-            cell.foodImageView.image = item.image
-            cell.foodLabel.text = item.name
+            let stack = UIStackView(arrangedSubviews: [Create.label(item.name), Create.imageView(item.image)])
+            stack.backgroundColor = .lightGray
+            stack.distribution = .fillEqually
+            
+            stack.isLayoutMarginsRelativeArrangement = true
+            stack.layoutMargins = UIEdgeInsets(top: 0, left: 10, bottom: 0, right: 10)
+            
+            cell.contentView.addSubview(stack)
+            cell.backgroundColor = .white
+            
+            stack.constraint([.top: 0, .leading: 10, .trailing: -10, .bottom: 0])
             
         }.disposed(by: bag)
         
@@ -48,15 +64,3 @@ class FoodView: UIViewController {
         table.view.constraint(to: view.safeAreaLayoutGuide, by: [.top,.leading,.trailing,.bottom])
     }
 }
-
-extension FoodView: FoodViewCellDelegate {
-    
-    func changeScreen(_ image: UIImage?, title: String?) {
-        
-        let foodDetailsView = FoodDetailsView(image)
-        foodDetailsView.title = title
-        
-        navigationController?.pushViewController(foodDetailsView, animated: true)
-    }
-}
-    
