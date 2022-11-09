@@ -17,7 +17,13 @@ class WrongWayDecodeView: UIViewController {
         
         title = "Decode things :)"
         
-        view.backgroundColor = .lightGray
+        let gradient = CAGradientLayer()
+
+        gradient.frame = view.bounds
+        gradient.colors = [UIColor.systemGreen.cgColor, UIColor.systemGreen.cgColor, UIColor.white.cgColor]
+
+        view.layer.insertSublayer(gradient, at: 0)
+        
         view.addSubview(label)
         
         label.constraint(to: view.safeAreaLayoutGuide, by: [.top,.leading,.trailing])

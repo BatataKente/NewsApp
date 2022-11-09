@@ -16,6 +16,8 @@ class BatmanViewModel {
         Task {[weak self] in
             
             guard let data = await Network.Async.call(from: Network.EndPoints.omdbapi) else {return}
+            
+            
             guard let batman = Network.Async.decode(Batman.self, from: data) else {return}
             
             self?.batman = batman
